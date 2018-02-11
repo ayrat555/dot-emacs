@@ -22,7 +22,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (flycheck racer  ## slim-mode solidity-mode multiple-cursors org-journal neotree markdown-preview-mode projectile zenburn-theme)))
+    (ace-window flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal neotree markdown-preview-mode projectile zenburn-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -49,9 +49,13 @@
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-
 (require 'init-org-mode)
 (require 'init-rust-mode)
 (require 'init-elixir-mode)
 (require 'init-ruby-mode)
 (require 'init-themes)
+(require 'init-ace-window)
+(require 'init-neotree)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

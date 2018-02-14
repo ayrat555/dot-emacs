@@ -2,8 +2,8 @@
 (package-initialize)
 (add-to-list 'package-archives
              ;; '("melpa" . "http://melpa.milkbox.net/packages/") t)
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-             ;; '("melpa" . "http://melpa.org/packages/") t)
+             ;; '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -39,8 +39,8 @@
 (projectile-mode 1)
 
 ;; Garbage emacs autosave files
-(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
-(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/saves" t)))
+(setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/saves" t)))
 
 ;; Multiple cursors setup
 ;; https://github.com/magnars/multiple-cursors.el
@@ -48,6 +48,13 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(defun kill-other-buffers ()
+    "Kill all other buffers."
+    (interactive)
+    (mapc 'kill-buffer
+          (delq (current-buffer)
+                (remove-if-not 'buffer-file-name (buffer-list)))))
 
 (require 'init-org-mode)
 (require 'init-rust-mode)
@@ -57,6 +64,7 @@
 (require 'init-ace-window)
 (require 'init-neotree)
 (require 'init-magit)
+(require 'init-avy)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

@@ -8,4 +8,8 @@
 ;; don't deep indent arrays and hashes
 (setq enh-ruby-deep-indent-paren nil)
 
+;; Do not insert encoding in ruby files
+(setq ruby-insert-encoding-magic-comment nil) ;; for ruby mode (just in case)
+(setq enh-ruby-add-encoding-comment-on-save nil) ;; for enh ruby mode
+
 (provide 'init-ruby-mode)

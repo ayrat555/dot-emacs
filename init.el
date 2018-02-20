@@ -1,18 +1,13 @@
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives
-             ;; '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
              ;; '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-             '("melpa" . "http://melpa.org/packages/") t)
+             ;; '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-
-;; Elixir setup
-
-(require 'elixir-mode)
-(require 'alchemist)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -22,7 +17,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
+    (beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -41,6 +36,14 @@
 ;; Garbage emacs autosave files
 (setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/saves" t)))
+
+;; disable mouse
+;; https://github.com/purcell/disable-mouse
+(require 'disable-mouse)
+(global-disable-mouse-mode)
+
+;; https://github.com/Malabarba/beacon
+(beacon-mode 1)
 
 ;; Multiple cursors setup
 ;; https://github.com/magnars/multiple-cursors.el

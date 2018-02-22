@@ -17,7 +17,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
+    (pomidor transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -68,6 +68,7 @@
 (require 'init-neotree)
 (require 'init-magit)
 (require 'init-avy)
+(require 'init-pomidor)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

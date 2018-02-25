@@ -1,3 +1,6 @@
+(require 'org-bullets)
+(add-hook 'org-mode-hook 'org-bullets-mode)
+
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)

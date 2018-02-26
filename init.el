@@ -17,7 +17,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
+    (yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 

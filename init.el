@@ -1,5 +1,6 @@
 (require 'package)
 (package-initialize)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
              ;; '("melpa-stable" . "http://stable.melpa.org/packages/") t)

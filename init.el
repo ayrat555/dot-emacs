@@ -18,7 +18,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
+    (flycheck-credo org org-projectile yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 

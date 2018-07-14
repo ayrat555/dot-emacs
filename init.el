@@ -15,10 +15,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" default)))
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (flycheck-credo org org-projectile yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode projectile zenburn-theme)))
+    (helm-ag helm planet-theme flycheck-credo org yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode zenburn-theme)))
+ '(rust-indent-offset 8)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -31,8 +35,6 @@
 
 (require 'company)
 (global-company-mode 1)
-
-(projectile-mode 1)
 
 ;; Garbage emacs autosave files
 (setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
@@ -70,6 +72,7 @@
 (require 'init-magit)
 (require 'init-avy)
 (require 'init-pomidor)
+(require 'init-projectile)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

@@ -21,7 +21,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (helm-ag helm planet-theme flycheck-credo org yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode zenburn-theme)))
+    (helm-ag helm flycheck-credo org yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode zenburn-theme)))
  '(rust-indent-offset 8)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
@@ -73,6 +73,7 @@
 (require 'init-avy)
 (require 'init-pomidor)
 (require 'init-projectile)
+(require 'init-multi-term)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

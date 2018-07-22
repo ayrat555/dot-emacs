@@ -1,11 +1,12 @@
 (require 'powerline)
 (require 'planet-theme)
+(require 'kaolin-themes)
 (powerline-default-theme)
 
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id t)
 ;; (moe-dark)
-(load-theme 'planet t)
+(load-theme 'kaolin-galaxy t)
 
 ;; Startup window setup
 (setq inhibit-startup-screen t)

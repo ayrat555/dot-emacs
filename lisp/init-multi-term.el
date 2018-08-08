@@ -13,8 +13,7 @@
             (setq term-buffer-maximum-size 0)
             (setq show-trailing-whitespace nil)))
 
-(custom-set-variables
-  '(term-bind-key-alist
+(setq term-bind-key-alist
    (quote
     (("M-]" . multi-term-next)
      ("M-[" . multi-term-prev)
@@ -40,6 +39,6 @@
      ("M-r" . term-send-reverse-search-history)
      ("M-d" . term-send-delete-word)
      ("M-," . term-send-raw)
-     ("M-." . comint-dynamic-complete)))))
+     ("M-." . comint-dynamic-complete))))
 
 (provide 'init-multi-term)

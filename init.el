@@ -1,4 +1,12 @@
+;;; init.el --- Initialization file for Emacs
+
+;;; Commentary:
+;; Emacs Startup File --- initialization for Emacs
+
 (require 'package)
+
+;;; Code:
+
 (package-initialize)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (add-to-list 'package-archives
@@ -6,6 +14,7 @@
              ;; '("melpa-stable" . "http://stable.melpa.org/packages/") t)
              ;; '("melpa" . "http://melpa.org/packages/") t)
 
+(setq debug-on-error t)
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -19,10 +28,12 @@
    (quote
     ("094989d1072a9d76e22528308c19217172bf3568f081f111505cd4de1c101a8a" "a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" default)))
  '(menu-bar-mode nil)
+ '(org-agenda-files
+   (quote
+    ("/home/ayrat/Dropbox/org/habits.org" "/home/ayrat/Dropbox/org/ideas.org" "/home/ayrat/Dropbox/org/learn.org" "/home/ayrat/Dropbox/org/todo.org" "/home/ayrat/Dropbox/org/work.org")))
  '(package-selected-packages
    (quote
-    (helm-ag helm flycheck-credo org yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors org-journal markdown-preview-mode zenburn-theme)))
- '(rust-indent-offset 8)
+    (symon sudo-edit kaolin-themes helm-ag helm flycheck-credo org yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors markdown-preview-mode zenburn-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -55,17 +66,12 @@
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(defun kill-other-buffers ()
-    "Kill all other buffers."
-    (interactive)
-    (mapc 'kill-buffer
-          (delq (current-buffer)
-                (remove-if-not 'buffer-file-name (buffer-list)))))
 
 (require 'init-org-mode)
 (require 'init-rust-mode)
 (require 'init-elixir-mode)
 (require 'init-ruby-mode)
+(require 'init-lisp-mode)
 (require 'init-themes)
 (require 'init-ace-window)
 (require 'init-neotree)
@@ -77,10 +83,8 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 (put 'narrow-to-region 'disabled nil)
+
+(provide 'init)
+
+;;; init.el ends here

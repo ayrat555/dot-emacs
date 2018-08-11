@@ -1,10 +1,14 @@
-(require 'elixir-mode)
-(require 'alchemist)
+(use-package alchemist)
 
-(eval-after-load 'flycheck
-  '(flycheck-credo-setup))
-(add-hook 'elixir-mode-hook 'flycheck-mode)
-(add-hook 'elixir-mode-hook
-          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+(use-package flycheck-credo
+  :after flycheck
+  :config
+  (flycheck-credo-setup))
+
+(use-package elixir-mode
+  :config
+  (add-hook 'elixir-mode-hook 'flycheck-mode)
+  (add-hook 'elixir-mode-hook
+            (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
 
 (provide 'init-elixir-mode)

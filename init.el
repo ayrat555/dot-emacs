@@ -3,13 +3,18 @@
 ;;; Commentary:
 ;; Emacs Startup File --- initialization for Emacs
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'package)
 
 ;;; Code:
 
 ;;; (setq debug-on-error t)
-(package-initialize)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
@@ -43,9 +48,6 @@
   :config
   (global-disable-mouse-mode))
 
-(package-initialize)
-
-
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (put 'upcase-region 'disabled nil)
@@ -63,14 +65,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("094989d1072a9d76e22528308c19217172bf3568f081f111505cd4de1c101a8a" "a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" default)))
  '(package-selected-packages
    (quote
-    (eyebrowse symon sudo-edit kaolin-themes helm-ag helm flycheck-credo org yaml-mode transmission beacon seethru flycheck racer ## slim-mode solidity-mode markdown-preview-mode zenburn-theme))))
-
-(eyebrowse-mode t)
+    (magit multi-term pomidor neotree ace-window kaolin-themes helm-ag helm org yaml-mode flycheck racer ## slim-mode solidity-mode))))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -84,12 +81,16 @@
   :config
   (beacon-mode 1))
 
+(use-package eyebrowse
+  :config
+  (eyebrowse-mode t))
+
+(use-package sudo-edit)
+
 ;; https://github.com/magnars/multiple-cursors.el
 (use-package multiple-cursors
   :init
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines))
-;; (require 'multiple-cursors)
-;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -107,3 +108,9 @@
 (require 'init-pomidor)
 (require 'init-projectile)
 (require 'init-multi-term)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

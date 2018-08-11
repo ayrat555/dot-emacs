@@ -3,8 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "pomidor" "pomidor.el" (23406 36900 213744
-;;;;;;  258000))
+;;;### (autoloads nil "pomidor" "pomidor.el" (23407 3684 839118 659000))
 ;;; Generated autoloads from pomidor.el
 
 (autoload 'pomidor "pomidor" "\
@@ -14,8 +13,7 @@ A simple and cool pomodoro technique timer.
 
 ;;;***
 
-;;;### (autoloads nil nil ("pomidor-pkg.el") (23406 36900 201744
-;;;;;;  261000))
+;;;### (autoloads nil nil ("pomidor-pkg.el") (23407 3684 827118 670000))
 
 ;;;***
 

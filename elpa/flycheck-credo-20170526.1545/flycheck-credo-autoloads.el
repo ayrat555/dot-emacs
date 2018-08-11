@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flycheck-credo" "flycheck-credo.el" (23406
-;;;;;;  36830 197797 729000))
+;;;### (autoloads nil "flycheck-credo" "flycheck-credo.el" (23407
+;;;;;;  3370 935407 846000))
 ;;; Generated autoloads from flycheck-credo.el
 
 (autoload 'flycheck-credo-setup "flycheck-credo" "\

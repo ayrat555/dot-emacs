@@ -7,17 +7,56 @@
 
 ;;; Code:
 
+;;; (setq debug-on-error t)
 (package-initialize)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-             ;; '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-             ;; '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
-(setq debug-on-error t)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+(setq use-package-always-ensure t)
+(setq use-package-verbose t)
+
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-interval 1)
+  (auto-package-update-maybe))
+
+(use-package delight)
+
+;; interface customizations
+(setq menu-bar-mode nil)
+(setq scroll-bar-mode nil)
+(setq tool-bar-mode nil)
+
+(use-package disable-mouse
+  :delight
+  :config
+  (global-disable-mouse-mode))
+
 (package-initialize)
 
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+(setq-default indent-tabs-mode nil)
+
+;; Garbage autosave and backup files
+(setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/saves" t)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -27,42 +66,30 @@
  '(custom-safe-themes
    (quote
     ("094989d1072a9d76e22528308c19217172bf3568f081f111505cd4de1c101a8a" "a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" default)))
- '(menu-bar-mode nil)
- '(org-agenda-files
-   (quote
-    ("/home/ayrat/Dropbox/org/habits.org" "/home/ayrat/Dropbox/org/ideas.org" "/home/ayrat/Dropbox/org/learn.org" "/home/ayrat/Dropbox/org/todo.org" "/home/ayrat/Dropbox/org/work.org")))
  '(package-selected-packages
    (quote
-    (symon sudo-edit kaolin-themes helm-ag helm flycheck-credo org yaml-mode transmission beacon seethru disable-mouse flycheck racer ## slim-mode solidity-mode multiple-cursors markdown-preview-mode zenburn-theme)))
- '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+    (eyebrowse symon sudo-edit kaolin-themes helm-ag helm flycheck-credo org yaml-mode transmission beacon seethru flycheck racer ## slim-mode solidity-mode markdown-preview-mode zenburn-theme))))
 
-(put 'set-goal-column 'disabled nil)
-(setq-default indent-tabs-mode nil)
+(eyebrowse-mode t)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Company setup
 ;; http://company-mode.github.io/
-
-(require 'company)
-(global-company-mode 1)
-
-;; Garbage emacs autosave files
-(setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/saves" t)))
-
-;; disable mouse
-;; https://github.com/purcell/disable-mouse
-(require 'disable-mouse)
-(global-disable-mouse-mode)
+(use-package company
+  :config
+  (global-company-mode))
 
 ;; https://github.com/Malabarba/beacon
-(beacon-mode 1)
+(use-package beacon
+  :config
+  (beacon-mode 1))
 
-;; Multiple cursors setup
 ;; https://github.com/magnars/multiple-cursors.el
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(use-package multiple-cursors
+  :init
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines))
+;; (require 'multiple-cursors)
+;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -80,11 +107,3 @@
 (require 'init-pomidor)
 (require 'init-projectile)
 (require 'init-multi-term)
-
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-
-(provide 'init)
-
-;;; init.el ends here

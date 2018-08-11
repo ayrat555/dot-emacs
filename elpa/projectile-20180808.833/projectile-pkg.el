@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "projectile" "20180808.833" "Manage and navigate projects in Emacs easily" '((emacs "25.1") (pkg-info "0.4")) :commit "9c6e9813abec6e067c659e9107bf356086a95e04" :keywords '("project" "convenience") :authors '(("Bozhidar Batsov" . "bozhidar@batsov.com")) :maintainer '("Bozhidar Batsov" . "bozhidar@batsov.com") :url "https://github.com/bbatsov/projectile")

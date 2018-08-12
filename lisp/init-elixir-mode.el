@@ -1,7 +1,7 @@
 (use-package alchemist)
 
 (use-package flycheck-credo
-  :after flycheck
+  :requires flycheck
   :config
   (flycheck-credo-setup))
 

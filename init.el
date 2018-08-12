@@ -42,6 +42,9 @@
 (setq menu-bar-mode nil)
 (setq scroll-bar-mode nil)
 (setq tool-bar-mode nil)
+(global-linum-mode 1)
+(setq inhibit-startup-screen t)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (use-package disable-mouse
   :delight
@@ -55,31 +58,30 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (setq-default indent-tabs-mode nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Garbage autosave and backup files
 (setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/saves" t)))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (magit multi-term pomidor neotree ace-window kaolin-themes helm-ag helm org yaml-mode flycheck racer ## slim-mode solidity-mode))))
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; http://company-mode.github.io/
 (use-package company
   :config
-  (global-company-mode))
+  (global-company-mode)
+  (setq company-tooltip-align-annotations t))
 
 ;; https://github.com/Malabarba/beacon
 (use-package beacon
   :config
   (beacon-mode 1))
+
+(use-package yaml-mode
+  :mode "\\.yml\\'"
+  :config
+  (add-hook 'yaml-mode-hook
+            '(lambda ()
+               (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
+
 
 (use-package eyebrowse
   :config
@@ -92,8 +94,9 @@
   :init
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines))
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
+(use-package flycheck
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (require 'init-org-mode)
 (require 'init-rust-mode)
@@ -108,6 +111,14 @@
 (require 'init-pomidor)
 (require 'init-projectile)
 (require 'init-multi-term)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (multi-term helm-projectile helm pomidor magit neotree ace-window creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit eyebrowse yaml-mode beacon company disable-mouse delight auto-package-update use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

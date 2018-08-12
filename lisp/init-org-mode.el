@@ -1,5 +1,7 @@
 (use-package org
-  :mode "\\.org\\'"
+  :mode (("\\.org$" . org-mode))
+  :init
+  (setq org-agenda-files (list "~/Dropbox/org/"))
   :config
   (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-ca" 'org-agenda)
@@ -9,7 +11,7 @@
   (setq org-use-speed-commands t)
   (setq org-return-follows-link t)
   (setq org-enforce-todo-dependencies t)
-  (setq org-agenda-files (list "~/Dropbox/org/"))
+  (setq org-habit-show-habits-only-for-today nil)
   (setq org-archive-location "~/Dropbox/org_archive/archive.org::* From %s")
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/Dropbox/org/todo.org" "Todo soon")
@@ -31,15 +33,15 @@
          (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m))))
 
 (use-package org-bullets
-  :after org
+  :requires org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package org-journal
-  :after org)
+  :requires org)
 
 (use-package org-projectile
-  :after (org projectile)
+  :requires (org projectile)
   :config
   (setq org-projectile-projects-file
         "~/Dropbox/org/project_todos.org")

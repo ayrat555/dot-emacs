@@ -1,18 +1,11 @@
-(require 'powerline)
-(require 'planet-theme)
-(require 'kaolin-themes)
-(powerline-default-theme)
+(use-package kaolin-themes
+  :config
+  (global-set-key (kbd "C-c q 1") (lambda() (interactive) (load-theme 'kaolin-galaxy t)))
+  (global-set-key (kbd "C-c q 2") (lambda() (interactive) (load-theme 'kaolin-eclipse t)))
+  (global-set-key (kbd "C-c q 3") (lambda() (interactive) (load-theme 'kaolin-ocean t))))
 
-(require 'moe-theme)
-(setq moe-theme-highlight-buffer-id t)
-;; (moe-dark)
-(load-theme 'kaolin-galaxy t)
-
-;; Startup window setup
-(setq inhibit-startup-screen t)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; line numbers
-(global-linum-mode 1)
+(use-package creamsody-theme
+  :config
+  (global-set-key (kbd "C-c q 4") (lambda() (interactive) (load-theme 'creamsody t))))
 
 (provide 'init-themes)

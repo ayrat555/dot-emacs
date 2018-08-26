@@ -1,4 +1,5 @@
 (use-package org
+  :demand t
   :mode (("\\.org$" . org-mode))
   :init
   (setq org-agenda-files (list "~/Dropbox/org/"))

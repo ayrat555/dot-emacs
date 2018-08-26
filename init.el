@@ -31,6 +31,7 @@
 (setq use-package-verbose t)
 
 (use-package auto-package-update
+  :disable
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-interval 1)
@@ -40,7 +41,7 @@
 
 ;; interface customizations
 (setq menu-bar-mode nil)
-(setq scroll-bar-mode nil)
+(scroll-bar-mode -1)
 (setq tool-bar-mode nil)
 (global-linum-mode 1)
 (setq inhibit-startup-screen t)
@@ -84,6 +85,7 @@
 
 
 (use-package eyebrowse
+  :demand t
   :config
   (eyebrowse-mode t))
 

@@ -8,4 +8,6 @@
   :config
   (global-set-key (kbd "C-c q 4") (lambda() (interactive) (load-theme 'creamsody t))))
 
+(load-theme 'kaolin-galaxy t)
+
 (provide 'init-themes)

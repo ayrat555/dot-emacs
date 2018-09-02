@@ -101,6 +101,7 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (require 'init-org-mode)
+(require 'init-ivy)
 (require 'init-rust-mode)
 (require 'init-elixir-mode)
 (require 'init-ruby-mode)
@@ -120,7 +121,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (multi-term helm-projectile helm pomidor magit neotree ace-window creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit eyebrowse yaml-mode beacon company disable-mouse delight auto-package-update use-package))))
+    (multi-term pomidor magit neotree ace-window creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit eyebrowse yaml-mode beacon company disable-mouse delight auto-package-update use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

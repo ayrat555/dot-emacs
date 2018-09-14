@@ -8,6 +8,7 @@
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-iswitchb)
   (global-set-key "\C-cc" 'org-capture)
+  (global-set-key "\C-cw" 'org-time-stamp-inactive)
   (setq org-log-done t)
   (setq org-use-speed-commands t)
   (setq org-return-follows-link t)
@@ -42,7 +43,8 @@
   :requires org)
 
 (use-package org-projectile
-  :requires (org projectile)
+  :after org
+  :after projectile
   :config
   (setq org-projectile-projects-file
         "~/Dropbox/org/project_todos.org")

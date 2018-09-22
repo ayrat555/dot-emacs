@@ -11,5 +11,7 @@
 "))
                 org-capture-templates)))
 
+(use-package flycheck-ledger
+  :after ledger-mode)
 
 (provide 'init-ledger)

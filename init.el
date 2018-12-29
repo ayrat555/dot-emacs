@@ -116,6 +116,7 @@
 (require 'init-projectile)
 (require 'init-multi-term)
 (require 'init-ledger)
+(require 'init-markdown)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -126,7 +127,7 @@
     ("/home/ayrat/Dropbox/org/todo.org" "/home/ayrat/Dropbox/org/check.org" "/home/ayrat/Dropbox/org/habits.org" "/home/ayrat/Dropbox/org/ideas.org" "/home/ayrat/Dropbox/org/learn.org" "/home/ayrat/Dropbox/org/project_todos.org" "/home/ayrat/Dropbox/org/tweaks.org")))
  '(package-selected-packages
    (quote
-    (flycheck-ledger ledger-mode multi-term pomidor magit neotree ace-window creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit eyebrowse yaml-mode beacon company disable-mouse delight auto-package-update use-package))))
+    (markdown-mode vlf flycheck-ledger ledger-mode multi-term pomidor magit neotree ace-window creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit eyebrowse yaml-mode beacon company disable-mouse delight auto-package-update use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

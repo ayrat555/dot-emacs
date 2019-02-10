@@ -8,7 +8,7 @@
 (use-package elixir-mode
   :config
   (add-hook 'elixir-mode-hook 'flycheck-mode)
-  (add-hook 'elixir-mode-hook
-            (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
+  (remove-hook 'elixir-mode-hook
+            (lambda () (remove-hook 'before-save-hook 'elixir-format))))
 
 (provide 'init-elixir-mode)

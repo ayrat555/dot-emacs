@@ -30,13 +30,6 @@
 (setq use-package-always-ensure t)
 (setq use-package-verbose t)
 
-(use-package auto-package-update
-  :disable
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-interval 1)
-  (auto-package-update-maybe))
-
 (use-package delight)
 
 ;; interface customizations
@@ -106,7 +99,6 @@
 (require 'init-rust-mode)
 (require 'init-elixir-mode)
 (require 'init-ruby-mode)
-(require 'init-lisp-mode)
 (require 'init-themes)
 (require 'init-ace-window)
 (require 'init-neotree)
@@ -117,23 +109,3 @@
 (require 'init-multi-term)
 (require 'init-ledger)
 (require 'init-markdown)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("f633d825e380caaaefca46483f7243ae9a663f6df66c5fad66d4cab91f731c86" default)))
- '(org-agenda-files
-   (quote
-    ("/home/ayrat/Dropbox/org/todo.org" "/home/ayrat/Dropbox/org/check.org" "/home/ayrat/Dropbox/org/habits.org" "/home/ayrat/Dropbox/org/ideas.org" "/home/ayrat/Dropbox/org/learn.org" "/home/ayrat/Dropbox/org/project_todos.org" "/home/ayrat/Dropbox/org/tweaks.org")))
- '(package-selected-packages
-   (quote
-    (rebecca-theme avk-emacs-themes markdown-mode vlf flycheck-ledger ledger-mode multi-term pomidor magit neotree ace-window creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit eyebrowse yaml-mode beacon company disable-mouse delight auto-package-update use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

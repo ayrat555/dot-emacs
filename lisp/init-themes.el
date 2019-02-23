@@ -8,8 +8,22 @@
   :config
   (global-set-key (kbd "C-c q 4") (lambda() (interactive) (load-theme 'creamsody t))))
 
-(use-package rebecca-theme
+(use-package dracula-theme
   :config
-  (load-theme 'rebecca t))
+  (load-theme 'dracula t))
+
+(use-package smart-mode-line
+  :config
+  (setq sml/no-confirm-load-theme t)
+  (sml/setup))
+
+(use-package rich-minority
+  :config
+  (rich-minority-mode 1)
+  (setq rm-blacklist
+      (format "^ \\(%s\\)$"
+              (mapconcat #'identity
+                         '("Fly.*" "Projectile.*" "NoMouse.*" "ivy.*" "company.*" "ARev.*")
+                         "\\|"))))
 
 (provide 'init-themes)

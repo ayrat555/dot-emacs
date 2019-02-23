@@ -30,8 +30,6 @@
 (setq use-package-always-ensure t)
 (setq use-package-verbose t)
 
-(use-package delight)
-
 ;; interface customizations
 (setq menu-bar-mode nil)
 (scroll-bar-mode -1)
@@ -77,12 +75,6 @@
             '(lambda ()
                (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
 
-
-(use-package eyebrowse
-  :demand t
-  :config
-  (eyebrowse-mode t))
-
 (use-package sudo-edit)
 
 ;; https://github.com/magnars/multiple-cursors.el
@@ -109,3 +101,17 @@
 (require 'init-multi-term)
 (require 'init-ledger)
 (require 'init-markdown)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (markdown-mode flycheck-ledger ledger-mode multi-term pomidor magit neotree ace-window smart-mode-line dracula-theme creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode counsel org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit yaml-mode beacon company disable-mouse use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

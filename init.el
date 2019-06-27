@@ -68,6 +68,10 @@
   :config
   (beacon-mode 1))
 
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
 (use-package yaml-mode
   :mode "\\.yml\\'"
   :config

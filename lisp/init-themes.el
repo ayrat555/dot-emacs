@@ -12,7 +12,12 @@
 
 (use-package nord-theme
   :config
-  (load-theme 'nord t))
+  (if (daemonp)
+    (add-hook 'after-make-frame-functions
+        (lambda (frame)
+            (with-selected-frame frame
+                (load-theme 'nord t))))
+    (load-theme 'tronesque t)))
 
 (use-package smart-mode-line
   :config

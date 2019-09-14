@@ -8,9 +8,11 @@
   :config
   (global-set-key (kbd "C-c q 4") (lambda() (interactive) (load-theme 'creamsody t))))
 
-(use-package dracula-theme
+(use-package dracula-theme)
+
+(use-package nord-theme
   :config
-  (load-theme 'dracula t))
+  (load-theme 'nord t))
 
 (use-package smart-mode-line
   :config

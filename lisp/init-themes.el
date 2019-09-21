@@ -19,9 +19,14 @@
                 (load-theme 'nord t))))
     (load-theme 'tronesque t)))
 
+
+(use-package smart-mode-line-atom-one-dark-theme
+  :ensure t)
+
 (use-package smart-mode-line
   :config
   (setq sml/no-confirm-load-theme t)
+  (setq sml/theme 'atom-one-dark)
   (sml/setup))
 
 (use-package rich-minority

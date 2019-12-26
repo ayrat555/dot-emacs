@@ -10,13 +10,15 @@
 
 (use-package dracula-theme)
 
+(use-package challenger-deep-theme)
+
 (use-package nord-theme
   :config
   (if (daemonp)
     (add-hook 'after-make-frame-functions
         (lambda (frame)
             (with-selected-frame frame
-                (load-theme 'nord t))))
+                (load-theme 'challenger-deep t))))
     (load-theme 'tronesque t)))
 
 

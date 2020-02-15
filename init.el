@@ -15,7 +15,7 @@
 ;;; Code:
 
 ;;; (setq debug-on-error t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
@@ -99,6 +99,8 @@
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
+(use-package toml-mode)
+
 (require 'init-org-mode)
 (require 'init-ivy)
 (require 'init-rust-mode)
@@ -127,7 +129,7 @@
     ("89f545ddc104836b27167696db89b371f23893d5b2f038d43383d877ee678d3d" default)))
  '(package-selected-packages
    (quote
-    (define-word challenger-deep-theme nov smart-mode-line-atom-one-dark-theme exec-path-from-shell markdown-mode flycheck-ledger ledger-mode multi-term pomidor magit neotree ace-window smart-mode-line dracula-theme creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode counsel org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit yaml-mode beacon company disable-mouse use-package))))
+    (toml-mode define-word challenger-deep-theme nov smart-mode-line-atom-one-dark-theme exec-path-from-shell markdown-mode flycheck-ledger ledger-mode multi-term pomidor magit neotree ace-window smart-mode-line dracula-theme creamsody-theme kaolin-themes rspec-mode rubocop enh-ruby-mode flycheck-credo alchemist racer rust-mode counsel org-projectile org-journal org-bullets flycheck multiple-cursors sudo-edit yaml-mode beacon company disable-mouse use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

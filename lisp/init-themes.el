@@ -10,16 +10,13 @@
 
 (use-package dracula-theme)
 
-(use-package challenger-deep-theme)
-
-(use-package nord-theme
-  :config
-  (if (daemonp)
-    (add-hook 'after-make-frame-functions
-        (lambda (frame)
-            (with-selected-frame frame
-                (load-theme 'challenger-deep t))))
-    (load-theme 'tronesque t)))
+(use-package ample-theme
+  :init (progn (load-theme 'ample t t)
+               (load-theme 'ample-flat t t)
+               (load-theme 'ample-light t t)
+               (enable-theme 'ample-flat))
+  :defer t
+  :ensure t)
 
 
 (use-package smart-mode-line-atom-one-dark-theme
@@ -28,7 +25,7 @@
 (use-package smart-mode-line
   :config
   (setq sml/no-confirm-load-theme t)
-  (setq sml/theme 'atom-one-dark)
+  (setq sml/theme 'dark)
   (sml/setup))
 
 (use-package rich-minority

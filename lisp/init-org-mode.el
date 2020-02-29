@@ -2,7 +2,7 @@
   :demand t
   :mode (("\\.org$" . org-mode))
   :init
-  (setq org-agenda-files (list "~/Dropbox/org/"))
+  (setq org-agenda-files (list "~/.org/"))
   :config
   (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-ca" 'org-agenda)
@@ -14,21 +14,23 @@
   (setq org-return-follows-link t)
   (setq org-enforce-todo-dependencies t)
   (setq org-habit-show-habits-only-for-today nil)
-  (setq org-archive-location "~/Dropbox/org_archive/archive.org::* From %s")
+  (setq org-archive-location "~/.org/archive/archive.org::* From %s")
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/Dropbox/org/todo.org" "Todo soon")
+        '(("t" "Todo" entry (file+headline "~/.org/todo.org" "Todo")
            "* TODO %? \n  %^t")
-          ("i" "Idea" entry (file+headline "~/Dropbox/org/ideas.org" "Ideas")
+          ("i" "Idea" entry (file+headline "~/.org/ideas.org" "Ideas")
            "* %? \n %U")
-          ("e" "Tweak" entry (file+headline "~/Dropbox/org/tweaks.org" "Tweaks")
+          ("h" "Hobby" entry (file+headline "~/.org/hobby.org" "Hobby Projects")
            "* %? \n %U")
-          ("l" "Learn" entry (file+headline "~/Dropbox/org/learn.org" "Learn")
+          ("e" "Tweak" entry (file+headline "~/.org/tweaks.org" "Tweaks")
+           "* %? \n %U")
+          ("l" "Learn" entry (file+headline "~/.org/learn.org" "Learn")
            "* %? \n")
-          ("w" "Work note" entry (file+headline "~/Dropbox/org/work.org" "Work")
+          ("w" "Work note" entry (file+headline "~/.org/work.org" "Work")
            "* %? \n")
-          ("m" "Check movie" entry (file+headline "~/Dropbox/org/check.org" "Movies")
+          ("m" "Check movie" entry (file+headline "~/.org/check.org" "Movies")
            "* %? %^g")
-          ("n" "Check book" entry (file+headline "~/Dropbox/org/check.org" "Books")
+          ("n" "Check book" entry (file+headline "~/.org/check.org" "Books")
            "* %^{book name} by %^{author} %^g")))
   (setq org-modules
         (quote
@@ -47,7 +49,7 @@
   :after projectile
   :config
   (setq org-projectile-projects-file
-        "~/Dropbox/org/project_todos.org")
+        "~/.org/project_todos.org")
   (push (org-projectile-project-todo-entry) org-capture-templates)
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read))

@@ -2,7 +2,8 @@
   :config
   (global-set-key (kbd "C-c q 1") (lambda() (interactive) (load-theme 'kaolin-galaxy t)))
   (global-set-key (kbd "C-c q 2") (lambda() (interactive) (load-theme 'kaolin-eclipse t)))
-  (global-set-key (kbd "C-c q 3") (lambda() (interactive) (load-theme 'kaolin-ocean t))))
+  (global-set-key (kbd "C-c q 3") (lambda() (interactive) (load-theme 'kaolin-ocean t)))
+  :init (progn (load-theme 'kaolin-dark t)))
 
 (use-package creamsody-theme
   :config
@@ -10,13 +11,13 @@
 
 (use-package dracula-theme)
 
-(use-package ample-theme
-  :init (progn (load-theme 'ample t t)
-               (load-theme 'ample-flat t t)
-               (load-theme 'ample-light t t)
-               (enable-theme 'ample-flat))
-  :defer t
-  :ensure t)
+;; (use-package ample-theme
+;;   :init (progn (load-theme 'ample t t)
+;;                (load-theme 'ample-flat t t)
+;;                (load-theme 'ample-light t t)
+;;                (enable-theme 'ample-flat))
+  ;; :defer t
+  ;; :ensure t)
 
 
 (use-package smart-mode-line-atom-one-dark-theme

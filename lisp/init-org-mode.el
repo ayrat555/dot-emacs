@@ -3,10 +3,11 @@
   :mode (("\\.org$" . org-mode))
   :init
   (setq org-agenda-files (list "~/.org/"))
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   :config
   (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-ca" 'org-agenda)
-  (global-set-key "\C-cb" 'org-iswitchb)
+  (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-cw" 'org-time-stamp-inactive)
   (setq org-log-done t)
@@ -40,6 +41,11 @@
   :requires org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(use-package org-sticky-header-mode
+  :requires org
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-sticky-header-mode))))
 
 (use-package org-journal
   :requires org)

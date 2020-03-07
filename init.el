@@ -99,8 +99,6 @@
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-(use-package shx)
-
 (use-package toml-mode)
 (require 'init-org-mode)
 (require 'init-ivy)
@@ -114,13 +112,13 @@
 (require 'init-avy)
 (require 'init-pomidor)
 (require 'init-projectile)
-(require 'init-multi-term)
 (require 'init-ledger)
 (require 'init-markdown)
 (require 'init-js)
 (require 'init-golang)
 (require 'init-nov)
 (require 'init-web-mode)
+(require 'init-shx)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

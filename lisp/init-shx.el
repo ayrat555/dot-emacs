@@ -14,7 +14,8 @@
   ;; flash the previous comint prompt for a full second when using C-c C-p
   shx-flash-prompt-time 1.0
   ;; use `#' to prefix shx commands instead of the default `:'
-  shx-leader ":")
+  shx-leader ":"
+  shx-global-mode 1)
   (global-set-key (kbd "C-c ` `") 'shx))
 
 
@@ -24,7 +25,7 @@
   (make-directory comint-history-dir))
 
 (defun comint-write-history-on-exit (process event)
-  (comint-write-input-ring)
+  (message (process-name process))
   (let ((buf (process-buffer process)))
     (when (buffer-live-p buf)
       (with-current-buffer buf
@@ -34,8 +35,8 @@
   (let ((process (get-buffer-process (current-buffer))))
     (when process
       (setq comint-input-ring-file-name
-            (expand-file-name (format "inferior-%s-history"
-                                      (process-name process))
+            (expand-file-name (format "%s-history"
+                                      (car (split-string (message (process-name process)) "<")))
                               comint-history-dir))
       (comint-read-input-ring t)
       (add-hook 'kill-buffer-hook 'comint-write-input-ring t t)

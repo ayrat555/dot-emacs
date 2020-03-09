@@ -7,6 +7,11 @@
 (setq css-indent-offset 2)
 
 (use-package prettier-js
-  :after js2-mode)
+  :config
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'web-mode-hook #'(lambda ()
+                               (enable-minor-mode
+                                '(("\\.jsx?\\'" "\\.ts\\'" "\\.tsx\\'") . prettier-js-mode))))
+  (add-hook 'typescript-mode-hook 'prettier-js-mode))
 
 (provide 'init-js)

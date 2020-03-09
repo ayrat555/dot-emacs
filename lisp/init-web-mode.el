@@ -1,4 +1,6 @@
 (use-package web-mode
-  :mode "\\.eex$")
+  :mode "\\.eex$"
+  :config
+  (setq web-mode-markup-indent-offset 2))
 
 (provide 'init-web-mode)

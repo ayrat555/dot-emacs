@@ -1,0 +1,3 @@
+[submodule "custom/mix.el"]
+	path = custom/mix.el
+	url = https://github.com/ayrat555/mix.el.git

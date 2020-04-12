@@ -18,8 +18,8 @@
                                             (list "--dot-formatter"
                                                   (concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
                                     (setq elixir-format-arguments nil)))))
-
-(load-file (expand-file-name "custom/mix.el/mix.el" user-emacs-directory))
-(add-hook 'elixir-mode-hook 'mix-minor-mode)
+(use-package mix
+  :config
+  (add-hook 'elixir-mode-hook 'mix-minor-mode))
 
 (provide 'init-elixir-mode)

@@ -53,17 +53,3 @@
 (require 'init-web-mode)
 (require 'init-shx)
 (require 'init-proced)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (shx web-mode nov go-mode prettier-js typescript-mode js2-mode flycheck-ledger ledger-mode pomidor magit neotree org-sticky-header-mode yaml-mode xclip use-package toml-mode sudo-edit smart-mode-line-atom-one-dark-theme rubocop rspec-mode racer org-projectile org-journal org-bullets multiple-cursors kaolin-themes flycheck-credo exec-path-from-shell enh-ruby-mode dracula-theme disable-mouse define-word creamsody-theme counsel cargo beacon alchemist ace-window))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

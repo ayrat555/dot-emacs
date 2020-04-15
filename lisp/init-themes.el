@@ -3,7 +3,7 @@
   (global-set-key (kbd "C-c q 1") (lambda() (interactive) (load-theme 'kaolin-galaxy t)))
   (global-set-key (kbd "C-c q 2") (lambda() (interactive) (load-theme 'kaolin-eclipse t)))
   (global-set-key (kbd "C-c q 3") (lambda() (interactive) (load-theme 'kaolin-ocean t)))
-  :init (progn (load-theme 'kaolin-galaxy t)))
+  :init (progn (load-theme 'kaolin-ocean t)))
 
 (use-package creamsody-theme
   :config
@@ -14,8 +14,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'kaolin-galaxy t)))
-    (load-theme 'kaolin-galaxy t))
+                (load-theme 'kaolin-ocean t)))
+    (load-theme 'kaolin-ocean t))
 
 
 (use-package smart-mode-line-atom-one-dark-theme

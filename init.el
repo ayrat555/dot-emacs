@@ -40,7 +40,6 @@
 (require 'init-ruby-mode)
 (require 'init-themes)
 (require 'init-ace-window)
-(require 'init-neotree)
 (require 'init-magit)
 (require 'init-avy)
 (require 'init-pomidor)
@@ -53,3 +52,4 @@
 (require 'init-web-mode)
 (require 'init-shx)
 (require 'init-proced)
+(require 'init-treemacs)

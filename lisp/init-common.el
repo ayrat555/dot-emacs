@@ -48,4 +48,6 @@
 
 (use-package toml-mode)
 
+(use-package speed-type)
+
 (provide 'init-common)

@@ -15,6 +15,11 @@
   (global-company-mode)
   (setq company-tooltip-align-annotations t))
 
+(use-package dumb-jump
+  :config
+  (setq dumb-jump-selector 'ivy)
+  (dumb-jump-mode))
+
 (use-package define-word
   :config
   (global-set-key (kbd "C-c e q") 'define-word-at-point))

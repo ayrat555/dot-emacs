@@ -53,3 +53,4 @@
 (require 'init-shx)
 (require 'init-proced)
 (require 'init-treemacs)
+(require 'init-yasnippet)

@@ -59,6 +59,9 @@
 
 (use-package toml-mode)
 
+(use-package dockerfile-mode
+  :mode "Dockerfile\\'")
+
 (use-package speed-type)
 
 (provide 'init-common)

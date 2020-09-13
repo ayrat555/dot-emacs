@@ -22,7 +22,4 @@
   :config
   (add-hook 'elixir-mode-hook 'mix-minor-mode))
 
-;; (load-file (expand-file-name "custom/company-elixir/company-elixir.el" user-emacs-directory))
-;; (add-hook 'elixir-mode-hook 'company-elixir-hook)
-
 (provide 'init-elixir-mode)

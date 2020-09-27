@@ -10,11 +10,12 @@
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-cw" 'org-time-stamp-inactive)
+  (setq org-agenda-span 'month)
   (setq org-log-done t)
   (setq org-use-speed-commands t)
   (setq org-return-follows-link t)
   (setq org-enforce-todo-dependencies t)
-  (setq org-habit-show-habits-only-for-today nil)
+  (setq org-habit-show-habits-only-for-today t)
   (setq org-archive-location "~/.org/archive/archive.org::* From %s")
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/.org/todo.org" "Todo")

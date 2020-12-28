@@ -28,6 +28,8 @@
            "* %? \n %U")
           ("l" "Learn" entry (file+headline "~/.org/learn.org" "Learn")
            "* %? \n")
+          ("b" "Buy" entry (file+headline "~/.org/buy.org" "Shopping list")
+           "* %? \n")
           ("w" "Work note" entry (file+headline "~/.org/work.org" "Work")
            "* %? \n")
           ("m" "Check movie" entry (file+headline "~/.org/check.org" "Movies")
@@ -60,6 +62,20 @@
   (push (org-projectile-project-todo-entry) org-capture-templates)
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read))
+
+(use-package org-roam
+      :ensure t
+      :hook
+      (after-init . org-roam-mode)
+      :custom
+      (org-roam-directory "~/.org/")
+      :bind (:map org-roam-mode-map
+              (("C-c n l" . org-roam)
+               ("C-c n f" . org-roam-find-file)
+               ("C-c n g" . org-roam-graph))
+              :map org-mode-map
+              (("C-c n i" . org-roam-insert))
+              (("C-c n I" . org-roam-insert-immediate))))
 
 
 (provide 'init-org-mode)

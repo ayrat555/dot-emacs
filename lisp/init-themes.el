@@ -32,7 +32,7 @@
   (setq rm-blacklist
       (format "^ \\(%s\\)$"
               (mapconcat #'identity
-                         '("Fly.*" "Projectile.*" "NoMouse.*" "ivy.*" "company.*" "ARev.*")
+                         '("Fly.*" "Projectile.*" "NoMouse.*" "ivy.*" "company.*" "ARev.*" "Org-roam.*")
                          "\\|"))))
 
 (provide 'init-themes)

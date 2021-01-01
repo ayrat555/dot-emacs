@@ -3,6 +3,7 @@
 (scroll-bar-mode -1)
 (setq tool-bar-mode nil)
 (global-linum-mode 1)
+(setq linum-format "%d ")
 (set-face-attribute 'linum nil :height 100)
 (setq inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -14,6 +15,9 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(set-face-attribute 'default nil
+                    :family "Hack" :height 145 :weight 'normal)
 
 (use-package disable-mouse
   :delight

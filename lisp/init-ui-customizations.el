@@ -17,7 +17,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (set-face-attribute 'default nil
-                    :family "Hack" :height 145 :weight 'normal)
+                    :family "Hack" :height 135 :weight 'normal)
 
 (use-package disable-mouse
   :delight

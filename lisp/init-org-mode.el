@@ -38,7 +38,7 @@
            "* %^{book name} by %^{author} %^g")))
   (setq org-modules
         (quote
-         (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m))))
+         (org-protocol org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m))))
 
 (use-package org-bullets
   :requires org
@@ -52,6 +52,7 @@
 
 (use-package org-journal
   :requires org)
+
 (use-package org-projectile
   :after org
   :after projectile
@@ -67,12 +68,28 @@
       :hook
       (after-init . org-roam-mode)
       :custom
-      (org-roam-directory "/Users/ayrat/.org-roam/")
+      (org-roam-directory "~/.org-roam/")
+      (org-roam-dailies-directory "~/.org-roam/daily/")
+      (org-roam-dailies-capture-templates
+           '(("l" "lab" entry
+              #'org-roam-capture--get-point
+              "* %?"
+              :file-name "daily/%<%Y-%m-%d>"
+              :head "#+title: %<%Y-%m-%d>\n"
+              :olp ("Lab notes"))
+
+             ("j" "journal" entry
+              #'org-roam-capture--get-point
+              "* %?"
+              :file-name "daily/%<%Y-%m-%d>"
+              :head "#+title: %<%Y-%m-%d>\n"
+              :olp ("Journal"))))
       (org-roam-graph-viewer "open")
       :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph))
+               ("C-c n g" . org-roam-graph)
+               ("C-c n j" . org-roam-dailies-capture-today))
               :map org-mode-map
               (("C-c n i" . org-roam-insert))
               (("C-c n I" . org-roam-insert-immediate))))
@@ -91,6 +108,14 @@
         org-roam-server-network-label-truncate t
         org-roam-server-network-label-truncate-length 60
         org-roam-server-network-label-wrap-length 20))
+
+(use-package olivetti
+  :config
+  (setq olivetti-body-width 150)
+  (add-hook 'text-mode-hook 'olivetti-mode)
+  (add-hook 'Info-mode-hook 'olivetti-mode)
+  (add-hook 'help-mode-hook 'olivetti-mode))
+
 
 
 (provide 'init-org-mode)

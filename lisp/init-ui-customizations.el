@@ -4,7 +4,7 @@
 (setq tool-bar-mode nil)
 (global-linum-mode 1)
 (setq linum-format "%d ")
-(set-face-attribute 'linum nil :height 100)
+(set-face-attribute 'linum nil :height 140)
 (setq inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq compilation-scroll-output t)

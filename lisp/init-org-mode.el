@@ -11,6 +11,8 @@
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-cw" 'org-time-stamp-inactive)
   (setq org-agenda-span 'month)
+  ;; fixes " version-to-list: Invalid version syntax: ‘’ (must start with a number) "
+  (setq org-version "9.4.4")
   (setq org-log-done t)
   (setq org-use-speed-commands t)
   (setq org-return-follows-link t)
@@ -19,23 +21,9 @@
   (setq org-archive-location "~/.org/archive/archive.org::* From %s")
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/.org/todo.org" "Todo")
-           "* TODO %? \n  %^t")
-          ("i" "Idea" entry (file+headline "~/.org/ideas.org" "Ideas")
-           "* %? \n %U")
-          ("h" "Hobby" entry (file+headline "~/.org/hobby.org" "Hobby Projects")
-           "* %? \n %U")
-          ("e" "Tweak" entry (file+headline "~/.org/tweaks.org" "Tweaks")
-           "* %? \n %U")
-          ("l" "Learn" entry (file+headline "~/.org/learn.org" "Learn")
-           "* %? \n")
+           "* TODO %? \n  %t \n")
           ("b" "Buy" entry (file+headline "~/.org/buy.org" "Shopping list")
-           "* %? \n")
-          ("w" "Work note" entry (file+headline "~/.org/work.org" "Work")
-           "* %? \n")
-          ("m" "Check movie" entry (file+headline "~/.org/check.org" "Movies")
-           "* %? %^g")
-          ("n" "Check book" entry (file+headline "~/.org/check.org" "Books")
-           "* %^{book name} by %^{author} %^g")))
+           "* %? \n")))
   (setq org-modules
         (quote
          (org-protocol org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m))))
@@ -51,7 +39,18 @@
   (add-hook 'org-mode-hook (lambda () (org-sticky-header-mode))))
 
 (use-package org-journal
-  :requires org)
+  :ensure t
+  :defer t
+  :after org
+  :bind
+  (("C-c o j" . org-journal-new-entry))
+  :config
+  (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
+  (setq org-journal-dir "~/.org/journal/")
+  (add-to-list 'org-agenda-files org-journal-dir)
+  (setq org-journal-date-format "%A, %d %B %Y")
+  (setq org-journal-file-format "%Y-%m-%d.org")
+  (setq journal-enable-agenda-integration t))
 
 (use-package org-projectile
   :after org
@@ -60,8 +59,14 @@
   (setq org-projectile-projects-file
         "~/.org/project_todos.org")
   (push (org-projectile-project-todo-entry) org-capture-templates)
-  (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+  (add-to-list 'org-agenda-files (org-projectile-todo-files))
   (global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read))
+
+(use-package calfw)
+(use-package calfw-org
+  :config
+  (setq cfw:org-agenda-schedule-args '(:timestamp))
+  (setq cfw:org-overwrite-default-keybinding t))
 
 (use-package org-roam
       :ensure t
@@ -70,13 +75,13 @@
       :custom
       (org-roam-directory "~/.org-roam/")
       (org-roam-dailies-directory "~/.org-roam/daily/")
-      (org-roam-dailies-capture-templates
-           '(("l" "lab" entry
+      (set org-roam-dailies-capture-templates
+           '(("t" "todo" entry
               #'org-roam-capture--get-point
               "* %?"
               :file-name "daily/%<%Y-%m-%d>"
               :head "#+title: %<%Y-%m-%d>\n"
-              :olp ("Lab notes"))
+              :olp ("Todo"))
 
              ("j" "journal" entry
               #'org-roam-capture--get-point
@@ -89,7 +94,8 @@
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)
                ("C-c n g" . org-roam-graph)
-               ("C-c n j" . org-roam-dailies-capture-today))
+               ("C-c n j" . org-roam-dailies-capture-today)
+               ("C-c n t" . org-roam-dailies-capture-tomorrow))
               :map org-mode-map
               (("C-c n i" . org-roam-insert))
               (("C-c n I" . org-roam-insert-immediate))))
@@ -112,10 +118,10 @@
 (use-package olivetti
   :config
   (setq olivetti-body-width 150)
+  (setq olivetti-minimum-body-width 150)
   (add-hook 'text-mode-hook 'olivetti-mode)
   (add-hook 'Info-mode-hook 'olivetti-mode)
   (add-hook 'help-mode-hook 'olivetti-mode))
-
 
 
 (provide 'init-org-mode)

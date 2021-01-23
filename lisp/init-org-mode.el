@@ -119,9 +119,6 @@
   :config
   (setq olivetti-body-width 150)
   (setq olivetti-minimum-body-width 150)
-  (add-hook 'text-mode-hook 'olivetti-mode)
-  (add-hook 'Info-mode-hook 'olivetti-mode)
-  (add-hook 'help-mode-hook 'olivetti-mode))
-
+  (add-hook 'org-mode-hook 'olivetti-mode))
 
 (provide 'init-org-mode)

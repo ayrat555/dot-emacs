@@ -62,6 +62,8 @@
 (use-package dockerfile-mode
   :mode "Dockerfile\\'")
 
+(use-package terraform-mode)
+
 (use-package speed-type)
 
 (provide 'init-common)

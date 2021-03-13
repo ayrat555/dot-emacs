@@ -33,7 +33,7 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(use-package org-sticky-header-mode
+(use-package org-sticky-header
   :requires org
   :config
   (add-hook 'org-mode-hook (lambda () (org-sticky-header-mode))))

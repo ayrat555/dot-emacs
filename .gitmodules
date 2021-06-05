@@ -1,1 +1,4 @@
 
+[submodule "custom/cargo-mode"]
+	path = custom/cargo-mode
+	url = git@github.com:ayrat555/cargo-mode.git

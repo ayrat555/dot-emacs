@@ -9,6 +9,8 @@
 (setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/saves" t)))
 
+(use-package package-lint)
+
 ;; http://company-mode.github.io/
 (use-package company
   :config

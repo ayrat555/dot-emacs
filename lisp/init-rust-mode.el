@@ -6,8 +6,9 @@
   (setq rust-format-on-save t)
   (setq rust-indent-offset 4))
 
-(load-file (expand-file-name "custom/cargo-mode/cargo-mode.el" user-emacs-directory))
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(use-package cargo-mode
+  :config
+  (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
 (use-package racer
   :requires rust-mode

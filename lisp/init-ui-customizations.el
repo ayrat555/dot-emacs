@@ -1,11 +1,11 @@
 ;; interface customizations
 
-(if (display-graphic-p)
-    (progn
-      (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
-(setq menu-bar-mode nil)
+;; (if (display-graphic-p)
+;; )
+(setq menu-bar-mode -1)
+(tool-bar-mode -1)
 (global-linum-mode 1)
+(scroll-bar-mode -1)
 (setq linum-format "%d ")
 (set-face-attribute 'linum nil :height 140)
 (setq inhibit-startup-screen t)

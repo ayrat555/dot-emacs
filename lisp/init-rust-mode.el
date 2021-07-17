@@ -12,11 +12,6 @@
 
 (use-package racer
   :requires rust-mode
-
-  :init (setq racer-rust-src-path
-              (concat (string-trim
-                       (shell-command-to-string "rustc --print sysroot"))
-                      "/lib/rustlib/src/rust/src"))
   :after rust-mode
   :config
   (add-hook 'rust-mode-hook #'racer-mode))

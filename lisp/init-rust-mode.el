@@ -10,11 +10,4 @@
   :config
   (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
-(use-package racer
-  :requires rust-mode
-  :after rust-mode
-  :config
-  (add-hook 'rust-mode-hook #'racer-mode))
-
-
 (provide 'init-rust-mode)

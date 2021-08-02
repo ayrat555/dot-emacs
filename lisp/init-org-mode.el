@@ -5,7 +5,7 @@
   (setq org-agenda-files (list "~/.org/"))
   (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   :config
-  (global-set-key "\C-cl" 'org-store-link)
+  ;; (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cc" 'org-capture)
@@ -69,6 +69,7 @@
 
 (use-package org-roam
       :ensure t
+      :init  (setq org-roam-v2-ack t)
       :custom
       (org-roam-directory (file-truename "~/.org-roam/"))
       :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -79,6 +80,7 @@
              ;; Dailies
              ("C-c n j" . org-roam-dailies-capture-today))
       :config
+      (setq org-roam-node-display-template "${title} ${tags}")
       (org-roam-setup))
 
 (use-package olivetti

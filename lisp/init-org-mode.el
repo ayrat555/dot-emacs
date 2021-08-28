@@ -78,15 +78,18 @@
              ("C-c n i" . org-roam-node-insert)
              ("C-c n c" . org-roam-capture)
              ;; Dailies
-             ("C-c n j" . org-roam-dailies-capture-today))
+             ("C-c n j" . org-roam-dailies-capture-today)
+             ("C-c n d" . org-roam-dailies-goto-today)
+             ("C-c n y" . org-roam-dailies-goto-yesterday)
+             ("C-c n t" . org-roam-dailies-goto-tomorrow)
+             ("C-c n q" . org-roam-dailies-goto-date))
       :config
-      (setq org-roam-node-display-template "${title} ${tags}")
-      (org-roam-setup))
-
-(use-package olivetti
-  :config
-  (setq olivetti-body-width 150)
-  (setq olivetti-minimum-body-width 150)
-  (add-hook 'org-mode-hook 'olivetti-mode))
+      (org-roam-setup)
+      (setq org-roam-dailies-directory "daily/")
+      (setq org-roam-dailies-capture-templates
+            '(("d" "default" entry
+               "* %<%H:%M> %?"
+               :target (file+head "%<%Y-%m-%d>.org"
+                                  "#+title: %<%Y-%m-%d>\n")))))
 
 (provide 'init-org-mode)

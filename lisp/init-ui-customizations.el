@@ -32,9 +32,9 @@
   :config
   (beacon-mode 1))
 
-(use-package page-break-lines
-  :config
-  (global-page-break-lines-mode))
+;; (use-package page-break-lines
+;;   :config
+;;   (global-page-break-lines-mode))
 
 (use-package all-the-icons)
 

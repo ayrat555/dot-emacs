@@ -10,6 +10,8 @@
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-cw" 'org-time-stamp-inactive)
+  (add-hook 'org-mode-hook 'visual-line-mode)
+
   (setq org-agenda-span 'month)
   ;; fixes " version-to-list: Invalid version syntax: ‘’ (must start with a number) "
   (setq org-version "9.4.4")
@@ -24,6 +26,9 @@
            "* TODO %? \n  %t \n")
           ("b" "Buy" entry (file+headline "~/.org/buy.org" "Shopping list")
            "* %? \n")))
+  ;; org-roam link style to distinguish them from regular links
+  (org-link-set-parameters "id"
+                           :face 'org-roam-header-line)
   (setq org-modules
         (quote
          (org-protocol org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m))))
@@ -84,7 +89,7 @@
              ("C-c n t" . org-roam-dailies-goto-tomorrow)
              ("C-c n q" . org-roam-dailies-goto-date))
       :config
-      (org-roam-setup)
+      (org-roam-db-sync)
       (setq org-roam-dailies-directory "daily/")
       (setq org-roam-dailies-capture-templates
             '(("d" "default" entry

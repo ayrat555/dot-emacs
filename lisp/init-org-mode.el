@@ -74,6 +74,7 @@
 
 (use-package org-roam
       :ensure t
+      :after org
       :init  (setq org-roam-v2-ack t)
       :custom
       (org-roam-directory (file-truename "~/.org-roam/"))
@@ -89,12 +90,16 @@
              ("C-c n t" . org-roam-dailies-goto-tomorrow)
              ("C-c n q" . org-roam-dailies-goto-date))
       :config
-      (org-roam-db-sync)
+      (org-roam-db-autosync-mode)
       (setq org-roam-dailies-directory "daily/")
       (setq org-roam-dailies-capture-templates
             '(("d" "default" entry
                "* %<%H:%M> %?"
                :target (file+head "%<%Y-%m-%d>.org"
                                   "#+title: %<%Y-%m-%d>\n")))))
+
+(use-package ox-hugo
+  :ensure t
+  :after ox)
 
 (provide 'init-org-mode)

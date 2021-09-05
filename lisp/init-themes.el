@@ -13,8 +13,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'kaolin-galaxy t)))
-    (load-theme 'kaolin-galaxy t))
+                (load-theme 'dracula t)))
+    (load-theme 'dracula t))
 
 
 (use-package smart-mode-line-atom-one-dark-theme

@@ -28,6 +28,13 @@
   (setq dumb-jump-selector 'ivy)
   (dumb-jump-mode))
 
+
+(defun truncate-compilation-mode-hook ()
+  (setq truncate-lines nil)
+  (set (make-local-variable 'truncate-partial-width-windows) nil))
+(add-hook 'compilation-mode-hook 'truncate-compilation-mode-hook)
+
+
 (use-package define-word
   :config
   (global-set-key (kbd "C-c e q") 'define-word-at-point))

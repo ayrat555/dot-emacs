@@ -82,7 +82,7 @@
              ("C-c n f" . org-roam-node-find)
              ("C-c n g" . org-roam-graph)
              ("C-c n i" . org-roam-node-insert)
-             ("C-c n c" . org-roam-capture)
+             ("C-c n c" . ayrat555/org-roam-capture)
              ;; Dailies
              ("C-c n j" . org-roam-dailies-capture-today)
              ("C-c n d" . org-roam-dailies-goto-today)
@@ -97,6 +97,21 @@
                "* %<%H:%M> %?"
                :target (file+head "%<%Y-%m-%d>.org"
                                   "#+title: %<%Y-%m-%d>\n")))))
+
+(defun ayrat555/org-roam-capture ()
+  (interactive)
+  (let* ((directory (completing-read "org-roam directory: " (ayrat555/org-roam-directories)))
+         (org-roam-directory (expand-file-name directory org-roam-directory)))
+    (org-roam-capture- :node (org-roam-node-read)
+                       :templates '(("d" "default" plain "%?"
+                                     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                                                            "#+title: ${title}\n#+filetags: :%(symbol-value 'directory):"))))))
+(defun ayrat555/org-roam-directories ()
+  (let ((files (directory-files org-roam-directory)))
+    (seq-filter (lambda (name)
+                  (and (file-directory-p (concat org-roam-directory name))
+                       (not (string-prefix-p "." name))))
+                  files)))
 
 (use-package ox-hugo
   :ensure t

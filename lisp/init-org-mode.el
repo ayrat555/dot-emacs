@@ -2,7 +2,7 @@
   :demand t
   :mode (("\\.org$" . org-mode))
   :init
-  (setq org-agenda-files (list "~/.org/"))
+  (setq org-agenda-files (list "~/.org-roam/habits_and_todos/"))
   (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   :config
   ;; (global-set-key "\C-cl" 'org-store-link)

@@ -4,7 +4,7 @@
   :demand t
   :mode (("\\.org$" . org-mode))
   :init
-  (setq org-agenda-files (list "~/.org-roam/habits_and_todos/"))
+  (setq org-agenda-files (list "~/.org-roam/todos/"))
   (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   :config
   ;; (global-set-key "\C-cl" 'org-store-link)
@@ -22,7 +22,7 @@
   (setq org-return-follows-link t)
   (setq org-enforce-todo-dependencies t)
   (setq org-habit-show-habits-only-for-today t)
-  (setq org-archive-location "~/.org/archive/archive.org::* From %s")
+  (setq org-archive-location "~/.org-roam/archive/archive.org::* From %s")
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/.org/todo.org" "Todo")
            "* TODO %? \n  %t \n")
@@ -44,20 +44,6 @@
   :requires org
   :config
   (add-hook 'org-mode-hook (lambda () (org-sticky-header-mode))))
-
-(use-package org-journal
-  :ensure t
-  :defer t
-  :after org
-  :bind
-  (("C-c o j" . org-journal-new-entry))
-  :config
-  (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
-  (setq org-journal-dir "~/.org/journal/")
-  (add-to-list 'org-agenda-files org-journal-dir)
-  (setq org-journal-date-format "%A, %d %B %Y")
-  (setq org-journal-file-format "%Y-%m-%d.org")
-  (setq journal-enable-agenda-integration t))
 
 (use-package org-projectile
   :after org
@@ -97,8 +83,8 @@
       (setq org-roam-dailies-capture-templates
             '(("d" "default" entry
                "* %<%H:%M> %?"
-               :target (file+head "%<%Y-%m-%d>.org"
-                                  "#+title: %<%Y-%m-%d>\n")))))
+               :target (file+head+olp "%<%Y-%m-%d>.org"
+                                  "#+title: %<%Y-%m-%d>\n" ("Journal"))))))
 
 (defun ayrat555/org-roam-capture ()
   (interactive)

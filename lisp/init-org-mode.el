@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package org
   :demand t
   :mode (("\\.org$" . org-mode))
@@ -79,8 +81,8 @@
       :custom
       (org-roam-directory (file-truename "~/.org-roam/"))
       :bind (("C-c n l" . org-roam-buffer-toggle)
-             ("C-c n f" . org-roam-node-find)
-             ("C-c n g" . org-roam-graph)
+             ("C-c n f" . ayrat555/org-roam-node-find)
+             ("C-c n g" . org-roam-node-find)
              ("C-c n i" . org-roam-node-insert)
              ("C-c n c" . ayrat555/org-roam-capture)
              ;; Dailies
@@ -102,16 +104,50 @@
   (interactive)
   (let* ((directory (completing-read "org-roam directory: " (ayrat555/org-roam-directories)))
          (org-roam-directory (expand-file-name directory org-roam-directory)))
-    (org-roam-capture- :node (org-roam-node-read)
-                       :templates '(("d" "default" plain "%?"
-                                     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                                                            "#+title: ${title}\n#+filetags: :%(symbol-value 'directory):"))))))
+    (setq ayrat555/org-roam-current-tag directory)
+    (org-roam-capture- :node (org-roam-node-read
+                              nil
+                              (ayrat555/org-roam-filter-by-tag directory))
+                       :templates ayrat555/org-roam-capture-templates)))
+
+(defcustom ayrat555/org-roam-capture-templates
+  '(("d" "default" plain "%?"
+     :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                        "#+title: ${title}\n#+filetags: :%(ayrat555/org-roam-get-current-tag):")
+     :unnarrowed t))
+    "Templates for the creation of new entries within Org-roam.")
+
+(defun ayrat555/org-roam-get-current-tag ()
+  ayrat555/org-roam-current-tag)
+
 (defun ayrat555/org-roam-directories ()
   (let ((files (directory-files org-roam-directory)))
     (seq-filter (lambda (name)
                   (and (file-directory-p (concat org-roam-directory name))
                        (not (string-prefix-p "." name))))
-                  files)))
+                files)))
+
+(defun ayrat555/org-roam-filter-by-tag (tag-name)
+  (lambda (node)
+    (member tag-name (org-roam-node-tags node))))
+
+(defun ayrat555/org-roam-list-notes-by-tag (tag-name)
+  (mapcar #'org-roam-node-file
+          (seq-filter
+           (ayrat555/org-roam-filter-by-tag tag-name)
+           (org-roam-node-list))))
+
+(defun ayrat555/org-roam-node-find ()
+  (interactive)
+  (let* ((tags (ayrat555/org-roam-directories))
+         (tag (completing-read "tag: " tags))
+         (org-roam-directory (expand-file-name tag org-roam-directory)))
+    (setq ayrat555/org-roam-current-tag tag)
+    (org-roam-node-find
+     nil
+     nil
+     (ayrat555/org-roam-filter-by-tag tag)
+     :templates ayrat555/org-roam-capture-templates)))
 
 (use-package ox-hugo
   :ensure t

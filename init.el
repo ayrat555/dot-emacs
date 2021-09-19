@@ -44,6 +44,7 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+(require 'init-ui-customizations)
 (require 'init-ace-window)
 (require 'init-avy)
 (require 'init-common)
@@ -65,6 +66,5 @@
 (require 'init-shx)
 (require 'init-themes)
 (require 'init-treemacs)
-(require 'init-ui-customizations)
 (require 'init-web-mode)
 (require 'init-yasnippet)

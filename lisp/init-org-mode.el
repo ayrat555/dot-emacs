@@ -24,10 +24,20 @@
   (setq org-habit-show-habits-only-for-today t)
   (setq org-archive-location "~/.org-roam/archive/archive.org::* From %s")
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/.org/todo.org" "Todo")
+        '(("t" "Todo" entry (file+headline "~/.org-roam/todos/20210919173245-actions.org" "Backlog")
            "* TODO %? \n  %t \n")
-          ("b" "Buy" entry (file+headline "~/.org/buy.org" "Shopping list")
-           "* %? \n")))
+          ("f" "Fiction Books" entry (file+headline "~/.org-roam/fun/20210920064135-fiction_books.org" "Backlog")
+           "* %? \n  %t \n")
+          ("i" "Nonfiction Books" entry (file+headline "~/.org-roam/personal/20210919163010-nonfiction_books.org" "Backlog")
+           "* %? \n  %t \n")
+          ("m" "Movie" entry (file+headline "~/.org-roam/fun/20210102175200-movies.org" "Backlog")
+           "* %? \n %t \n")
+          ("v" "TV" entry (file+headline "~/.org-roam/fun/20210102112056-tv_series.org" "Backlog")
+           "* %? \n %t \n")
+          ("u" "Music" entry (file+headline "~/.org-roam/fun/20210925131533-music.org" "Backlog")
+           "* %? \n %t \n")
+          ("b" "Buy" entry (file+headline "~/.org-roam/personal/20210925123610-buy.org" "Backlog")
+           "* %? \n %t \n")))
   ;; org-roam link style to distinguish them from regular links
   (org-link-set-parameters "id"
                            :face 'org-roam-header-line)

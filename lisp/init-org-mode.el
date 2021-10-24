@@ -127,12 +127,6 @@
   (lambda (node)
     (member tag-name (org-roam-node-tags node))))
 
-(defun ayrat555/org-roam-list-notes-by-tag (tag-name)
-  (mapcar #'org-roam-node-file
-          (seq-filter
-           (ayrat555/org-roam-filter-by-tag tag-name)
-           (org-roam-node-list))))
-
 (defun ayrat555/org-roam-node-find ()
   (interactive)
   (let* ((tags (ayrat555/org-roam-directories))

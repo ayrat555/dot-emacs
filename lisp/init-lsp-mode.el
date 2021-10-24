@@ -2,10 +2,8 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :init  (setq lsp-rust-server 'rust-analyzer)
-         (add-to-list 'exec-path "~/.emacs.d/elixir-ls-1.11")
   :hook (
          (rust-mode . lsp)
-         (elixir-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 

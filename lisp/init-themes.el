@@ -8,13 +8,15 @@
   :config
   (global-set-key (kbd "C-c q 4") (lambda() (interactive) (load-theme 'creamsody t))))
 
+(use-package gruvbox-theme)
+
 (use-package dracula-theme)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'dracula t)))
-    (load-theme 'dracula t))
+                (load-theme 'gruvbox-dark-medium t)))
+    (load-theme 'gruvbox-dark-medium t))
 
 
 (use-package smart-mode-line-atom-one-dark-theme

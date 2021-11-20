@@ -55,7 +55,7 @@
 ;; https://github.com/magnars/multiple-cursors.el
 (use-package multiple-cursors
   :init
-  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines))
+  (global-set-key (kbd "C-q") 'mc/edit-lines))
 
 ;; Shared clipboard between terminal emacs and x11. xclip should be installed
 (use-package xclip

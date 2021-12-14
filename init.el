@@ -53,7 +53,6 @@
 (require 'init-ivy)
 (require 'init-js)
 (require 'init-ledger)
-(require 'init-lsp-mode)
 (require 'init-magit)
 (require 'init-markdown)
 (require 'init-nov)

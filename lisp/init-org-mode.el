@@ -60,7 +60,7 @@
   :after projectile
   :config
   (setq org-projectile-projects-file
-        "~/.org/project_todos.org")
+        "~/.org-roam/todos/20210919173245-actions.org")
   (push (org-projectile-project-todo-entry) org-capture-templates)
   (global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read))
 

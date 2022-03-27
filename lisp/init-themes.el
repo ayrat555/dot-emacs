@@ -15,8 +15,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'gruvbox-dark-medium t)))
-    (load-theme 'gruvbox-dark-medium t))
+                (load-theme 'kaolin-bubblegum t)))
+    (load-theme 'kaolin-bubblegum t))
 
 
 (use-package smart-mode-line-atom-one-dark-theme

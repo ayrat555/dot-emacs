@@ -36,7 +36,10 @@
 ;;   :config
 ;;   (global-page-break-lines-mode))
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :config
+  (when (display-graphic-p)
+    (require 'all-the-icons)))
 
 (use-package dashboard
   :ensure t

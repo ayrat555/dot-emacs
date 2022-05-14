@@ -75,4 +75,14 @@
 
 (use-package speed-type)
 
+(use-package focus)
+
+;; better undo
+(use-package undo-fu
+  :config
+  (global-unset-key (kbd "C-z"))
+  (global-set-key (kbd "C-z")   'undo-fu-only-undo)
+  (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
+
+
 (provide 'init-common)

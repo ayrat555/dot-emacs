@@ -43,6 +43,13 @@
   :config
   (exec-path-from-shell-initialize))
 
+;; see additional packages that need to be installed
+;; https://github.com/akermu/emacs-libvterm
+(use-package vterm
+  :ensure t
+  :init
+  (setq vterm-always-compile-module t))
+
 (use-package yaml-mode
   :mode "\\.yml\\'"
   :config

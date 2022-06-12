@@ -137,6 +137,7 @@
      nil
      nil
      (ayrat555/org-roam-filter-by-tag tag)
+     nil
      :templates ayrat555/org-roam-capture-templates)))
 
 (use-package ox-hugo

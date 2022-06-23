@@ -91,5 +91,9 @@
   (global-set-key (kbd "C-z")   'undo-fu-only-undo)
   (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
 
+;; Visualize the undo tree.
+(use-package vundo
+  :config
+  (setq vundo-glyph-alist vundo-unicode-symbols))
 
 (provide 'init-common)

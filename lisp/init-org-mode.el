@@ -142,6 +142,8 @@
 
 (use-package ox-hugo
   :ensure t
-  :after ox)
+  :after ox
+  :config
+  (setq org-hugo-base-dir "~/.org-roam/braindump"))
 
 (provide 'init-org-mode)

@@ -7,6 +7,7 @@
   (global-set-key "\C-s" 'swiper)
   (setq projectile-completion-system 'ivy)
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  (global-set-key (kbd "C-c e e") 'counsel-ag))
+  (global-set-key (kbd "C-c e e") 'counsel-rg)
+  (global-set-key (kbd "C-c e n") 'counsel-fzf))
 
 (provide 'init-ivy)

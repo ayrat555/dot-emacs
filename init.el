@@ -20,6 +20,8 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (defvar bootstrap-version)
+(setq straight-recipes-emacsmirror-use-mirror nil)
+(setq straight-recipes-gnu-elpa-use-mirror nil)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))

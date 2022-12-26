@@ -14,11 +14,13 @@
 
 (use-package dracula-theme)
 
-;; (if (daemonp)
-;;     (add-hook 'after-make-frame-functions
-;;               (lambda (frame)
-;;                 (load-theme 'doom-vibrant t)))
-;;     (load-theme 'doom-vibrant t))
+(use-package sublime-themes)
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (load-theme 'spolsky t)))
+    (load-theme 'spolsky t))
 
 (use-package smart-mode-line-atom-one-dark-theme
   :ensure t)
@@ -43,7 +45,6 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-dracula t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)

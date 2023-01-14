@@ -19,8 +19,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'spolsky t)))
-    (load-theme 'spolsky t))
+                (load-theme 'doom-challenger-deep t)))
+    (load-theme 'doom-challenger-deep t))
 
 (use-package smart-mode-line-atom-one-dark-theme
   :ensure t)

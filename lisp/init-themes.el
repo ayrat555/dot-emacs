@@ -19,8 +19,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'doom-laserwave t)))
-    (load-theme 'doom-laserwave t))
+                (load-theme 'doom-dracula t)))
+    (load-theme 'doom-dracula t))
 
 (use-package smart-mode-line-atom-one-dark-theme
   :ensure t)

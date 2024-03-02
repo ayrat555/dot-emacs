@@ -11,6 +11,8 @@
 
 (use-package package-lint)
 
+(use-package protobuf-mode)
+
 ;; http://company-mode.github.io/
 (use-package company
   :config

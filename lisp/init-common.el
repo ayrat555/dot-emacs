@@ -30,6 +30,8 @@
   (setq dumb-jump-selector 'ivy)
   (dumb-jump-mode))
 
+(use-package solidity-mode)
+
 
 (defun truncate-compilation-mode-hook ()
   (setq truncate-lines nil)

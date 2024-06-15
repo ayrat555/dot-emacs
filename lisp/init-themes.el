@@ -19,8 +19,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'doom-xcode t)))
-    (load-theme 'doom-xcode t))
+                (load-theme 'doom-bluloco-dark t)))
+    (load-theme 'doom-bluloco-dark t))
 
 (use-package smart-mode-line-atom-one-dark-theme
   :ensure t)

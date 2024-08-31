@@ -19,8 +19,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
-                (load-theme 'doom-dark+ t)))
-    (load-theme 'doom-dark+ t))
+                (load-theme 'doom-moonlight t)))
+    (load-theme 'doom-moonlight t))
 
 (use-package smart-mode-line-atom-one-dark-theme
   :ensure t)

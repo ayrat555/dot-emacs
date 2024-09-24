@@ -13,6 +13,8 @@
 
 (use-package protobuf-mode)
 
+(use-package lua-mode)
+
 ;; http://company-mode.github.io/
 (use-package company
   :config

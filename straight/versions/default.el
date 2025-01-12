@@ -5,7 +5,7 @@
  ("autothemer" . "cb4d4b69f8bb1f8158d2311692b7607794b75829")
  ("avy" . "933d1f36cca0f71e4acb5fac707e9ae26c536264")
  ("beacon" . "85261a928ae0ec3b41e639f05291ffd6bf7c231c")
- ("cargo-mode" . "1b97dec6fc5f8ff3a531f8d6dd33fbcc4ae1ba27")
+ ("cargo-mode" . "944323be2fec761555dc2952fe18b7c71f1c5d9a")
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
  ("company-mode" . "8878e2dcbce3f77c13e671a341bd53554275ff61")
  ("compat" . "a415c5f47a14355325d72a3bab8b62ddaebe0f10")

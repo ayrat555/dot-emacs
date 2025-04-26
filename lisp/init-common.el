@@ -15,6 +15,13 @@
 
 (use-package lua-mode)
 
+;; godot
+(use-package gdscript-mode
+    :straight (gdscript-mode
+               :type git
+               :host github
+               :repo "godotengine/emacs-gdscript-mode"))
+
 ;; http://company-mode.github.io/
 (use-package company
   :config

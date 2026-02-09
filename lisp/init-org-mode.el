@@ -50,6 +50,9 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package anki-editor
+  :vc (:url "https://github.com/anki-editor/anki-editor" :rev :newest))
+
 (use-package org-sticky-header
   :requires org
   :config

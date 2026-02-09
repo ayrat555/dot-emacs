@@ -109,4 +109,9 @@
   :config
   (setq vundo-glyph-alist vundo-unicode-symbols))
 
+
+(require 'which-key)
+(which-key-mode)
+(which-key-setup-side-window-bottom)
+
 (provide 'init-common)
